@@ -8,4 +8,9 @@ Spots is a photo sharing platform designed using CSS and HTML. Users can add the
 * CSS
 * Flexbox
 * Responsive design for mobile use 
-  
+
+## Deployment
+
+This webpage is deployed to GitHub Pages 
+
+- Deployment Link:  
