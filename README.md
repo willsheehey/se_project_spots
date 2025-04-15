@@ -15,4 +15,4 @@ This webpage is deployed to GitHub Pages  - [Deployment Link](https://willsheehe
 
 ## Video description 
 
-Below is a video sharing the functionality/code [Video Link](https://drive.google.com/file/d/1u_O64q8BFJk5Rz_38tzkQHrr5K14YXrC/view?usp=sharing)
+Video sharing the functionality/code - [Video Link](https://drive.google.com/file/d/1u_O64q8BFJk5Rz_38tzkQHrr5K14YXrC/view?usp=sharing)
