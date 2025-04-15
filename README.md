@@ -11,10 +11,8 @@ Spots is a photo sharing platform designed using CSS and HTML. Users can add the
 
 ## Deployment
 
-This webpage is deployed to GitHub Pages 
-
-- [Deployment Link]: (https://willsheehey.github.io/se_project_spots/)
+This webpage is deployed to GitHub Pages  - [Deployment Link](https://willsheehey.github.io/se_project_spots/)
 
 ## Video description 
 
-Below is a video sharing the functionality/code 
+Below is a video sharing the functionality/code [Video Link](https://drive.google.com/file/d/1u_O64q8BFJk5Rz_38tzkQHrr5K14YXrC/view?usp=sharing)
