@@ -1,30 +1,67 @@
-const EditProfileButton = document.querySelector(".profile__button")
+const editProfileButton = document.querySelector(".profile__button")
 
-const EditProfileModal = document.querySelector("#edit-profile-modal")
+const editProfileModal = document.querySelector("#edit-profile-modal")
 
-const EditProfileCloseButton = EditProfileModal.querySelector(".modal__close-btn")
+const editProfileCloseButton = editProfileModal.querySelector(".modal__close-btn")
 
-const NewPostButton = document.querySelector(".profile__add-btn")
+const newPostButton = document.querySelector(".profile__add-btn")
 
-const NewPostModal = document.querySelector("#new-post-modal")
+const newPostModal = document.querySelector("#new-post-modal")
 
-const NewPostCloseButton = NewPostModal.querySelector(".modal__close-btn")
+const newPostCloseButton = newPostModal.querySelector(".modal__close-btn")
 
-EditProfileButton.addEventListener('click', function() {
-  EditProfileModal.classList.add('modal_is-opened');
+const profileNameInput = editProfileModal.querySelector("#profile-name-input")
+
+const profileDescriptionInput = editProfileModal.querySelector("#profile-description-input")
+
+const profileName = document.querySelector(".profile__name")
+
+const profileDescription = document.querySelector(".profile__description")
+
+const editProfileForm = editProfileModal.querySelector(".modal__form")
+
+const postImageInput = newPostModal.querySelector("#profile-image-input")
+
+const postCaptionInput = newPostModal.querySelector("#profile-caption-input")
+
+const newPostFrom = newPostModal.querySelector(".modal__form")
+
+editProfileButton.addEventListener('click', function() {
+  editProfileModal.classList.add('modal_is-opened');
+  profileNameInput.value = profileName.textContent;
+  profileDescriptionInput.value = profileDescription.textContent;
 });
 
-EditProfileCloseButton.addEventListener('click', function() {
-  EditProfileModal.classList.remove('modal_is-opened');
+editProfileCloseButton.addEventListener('click', function() {
+  editProfileModal.classList.remove('modal_is-opened');
 });
 
-NewPostButton.addEventListener('click', function() {
-  NewPostModal.classList.add('modal_is-opened');
+newPostButton.addEventListener('click', function() {
+  newPostModal.classList.add('modal_is-opened');
 });
 
-NewPostCloseButton.addEventListener('click', function() {
-  NewPostModal.classList.remove('modal_is-opened');
+newPostCloseButton.addEventListener('click', function() {
+  newPostModal.classList.remove('modal_is-opened');
 });
 
+function handleFormSubmit(evt) {
+  evt.preventDefault();
+  profileName.textContent = profileNameInput.value;
+  profileDescription.textContent = profileDescriptionInput.value;
+  editProfileModal.classList.remove('modal_is-opened');
+
+}
+
+editProfileForm.addEventListener('submit', handleFormSubmit);
+
+function handlePostFormSubmit(evt) {
+  evt.preventDefault();
+  postImageInput.textContent = postImageInput.value;
+  postCaptionInput.textContent = postCaptionInput.value;
+  newPostModal.classList.remove('modal_is-opened')
+  console.log(postCaptionInput.value)
+  console.log(postImageInput.value)
+}
 
 
+newPostFrom.addEventListener('submit', handlePostFormSubmit);
