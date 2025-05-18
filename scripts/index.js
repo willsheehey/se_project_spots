@@ -56,29 +56,41 @@ const postCaptionInput = newPostModal.querySelector("#profile-caption-input")
 
 const newPostFrom = newPostModal.querySelector(".modal__form")
 
+function openModal(modal){
+  modal.classList.add("modal_is-opened");
+}
+// open modal function
+
+function closeModal(modal){
+  modal.classList.remove("modal_is-opened");
+}
+//close modal function
+
 editProfileButton.addEventListener('click', function() {
-  editProfileModal.classList.add('modal_is-opened');
   profileNameInput.value = profileName.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
+  openModal(editProfileModal);
 });
+
 
 editProfileCloseButton.addEventListener('click', function() {
-  editProfileModal.classList.remove('modal_is-opened');
+  closeModal(editProfileModal);
 });
 
+
 newPostButton.addEventListener('click', function() {
-  newPostModal.classList.add('modal_is-opened');
+  openModal(newPostModal);
 });
 
 newPostCloseButton.addEventListener('click', function() {
-  newPostModal.classList.remove('modal_is-opened');
+  closeModal(newPostModal);
 });
 
 function handleFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = profileNameInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  editProfileModal.classList.remove('modal_is-opened');
+  closeModal(editProfileModal);
 
 }
 
@@ -88,7 +100,7 @@ function handlePostFormSubmit(evt) {
   evt.preventDefault();
   postImageInput.textContent = postImageInput.value;
   postCaptionInput.textContent = postCaptionInput.value;
-  newPostModal.classList.remove('modal_is-opened')
+  closeModal(newPostModal);
   console.log(postCaptionInput.value)
   console.log(postImageInput.value)
 }
