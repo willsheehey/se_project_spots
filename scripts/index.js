@@ -75,8 +75,16 @@ const cardLikeBtn = cardElement.querySelector(".card__like-button")
 cardLikeBtn.addEventListener('click',function()
 {cardLikeBtn.classList.toggle("card__like-button_active") })
 
+const cardDeleteBtn = cardElement.querySelector(".card__delete-button")
+
+cardDeleteBtn.addEventListener('click',function()
+{cardElement.remove(); })
+
+
    return cardElement;
  };
+
+
 
 function openModal(modal){
   modal.classList.add("modal_is-opened");
@@ -140,4 +148,6 @@ initialCards.forEach(function(item)
   const createCard = getCardElement(item);
   cardsList.append(createCard);
 });
+
+
 
