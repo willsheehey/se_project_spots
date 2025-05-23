@@ -28,33 +28,55 @@ const initialCards = [
 
   ];
 
-const editProfileButton = document.querySelector(".profile__button")
+const editProfileButton = document.querySelector(".profile__button");
 
-const editProfileModal = document.querySelector("#edit-profile-modal")
+const editProfileModal = document.querySelector("#edit-profile-modal");
 
-const editProfileCloseButton = editProfileModal.querySelector(".modal__close-btn")
+const editProfileCloseButton = editProfileModal.querySelector(".modal__close-btn");
 
-const newPostButton = document.querySelector(".profile__add-btn")
+const newPostButton = document.querySelector(".profile__add-btn");
 
-const newPostModal = document.querySelector("#new-post-modal")
+const newPostModal = document.querySelector("#new-post-modal");
 
-const newPostCloseButton = newPostModal.querySelector(".modal__close-btn")
+const newPostCloseButton = newPostModal.querySelector(".modal__close-btn");
 
-const profileNameInput = editProfileModal.querySelector("#profile-name-input")
+const profileNameInput = editProfileModal.querySelector("#profile-name-input");
 
-const profileDescriptionInput = editProfileModal.querySelector("#profile-description-input")
+const profileDescriptionInput = editProfileModal.querySelector("#profile-description-input");
 
-const profileName = document.querySelector(".profile__name")
+const profileName = document.querySelector(".profile__name");
 
-const profileDescription = document.querySelector(".profile__description")
+const profileDescription = document.querySelector(".profile__description");
 
-const editProfileForm = editProfileModal.querySelector(".modal__form")
+const editProfileForm = editProfileModal.querySelector(".modal__form");
 
-const postImageInput = newPostModal.querySelector("#profile-image-input")
+const postImageInput = newPostModal.querySelector("#profile-image-input");
 
-const postCaptionInput = newPostModal.querySelector("#profile-caption-input")
+const postCaptionInput = newPostModal.querySelector("#profile-caption-input");
 
-const newPostFrom = newPostModal.querySelector(".modal__form")
+const newPostFrom = newPostModal.querySelector(".modal__form");
+
+const cardTemplate = document.querySelector("#card-template").content
+.querySelector(".card");
+
+const cardsList = document.querySelector(".cards__list");
+
+
+function getCardElement(data) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardTitleEl = cardElement.querySelector(".card__title");
+  const cardImageEl = cardElement.querySelector(".card__image");
+  cardImageEl.src = data.link;
+  cardImageEl.alt = data.name;
+  cardTitleEl.textContent = data.name;
+
+const cardLikeBtn = cardElement.querySelector(".card__like-button")
+
+cardLikeBtn.addEventListener('click',function()
+{cardLikeBtn.classList.toggle("card__like-button_active") })
+
+   return cardElement;
+ };
 
 function openModal(modal){
   modal.classList.add("modal_is-opened");
@@ -98,11 +120,16 @@ editProfileForm.addEventListener('submit', handleFormSubmit);
 
 function handlePostFormSubmit(evt) {
   evt.preventDefault();
-  postImageInput.textContent = postImageInput.value;
-  postCaptionInput.textContent = postCaptionInput.value;
+
+  const inputValues =
+  {name: postCaptionInput.value,
+    link: postImageInput.value,}
+
+  const createCard = getCardElement(inputValues
+  );
+
+  cardsList.prepend(createCard);
   closeModal(newPostModal);
-  console.log(postCaptionInput.value)
-  console.log(postImageInput.value)
 }
 
 
@@ -110,7 +137,7 @@ newPostFrom.addEventListener('submit', handlePostFormSubmit);
 
 initialCards.forEach(function(item)
 {
-  console.log(item.name)
-  console.log(item.link)
-}
-);
+  const createCard = getCardElement(item);
+  cardsList.append(createCard);
+});
+

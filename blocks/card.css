@@ -10,7 +10,6 @@
   background-image: url(../images/Union.svg);
   width: 23px;
   height: 20px;
-  opacity: 40%;
   background-color: transparent;
   border: none;
   background-size: contain;
@@ -18,9 +17,19 @@
   background-repeat: no-repeat;
  }
 
+
  .card__like-button:hover {
   opacity: 1;
   cursor: pointer;
+ }
+
+ .card__like-button_active {
+  background-image: url(../images/like.svg);
+ }
+
+ .card__like-button_active:hover {
+  background-image: url(../images/toggle-like.svg);
+  opacity: .4;
  }
 
  .card__content {
