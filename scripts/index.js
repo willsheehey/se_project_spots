@@ -87,13 +87,13 @@ cardLikeBtn.addEventListener('click',function()
 const cardDeleteBtn = cardElement.querySelector(".card__delete-button")
 
 cardDeleteBtn.addEventListener('click',function()
-{cardElement.remove(); })
+{cardElement.remove(); });
 
-cardElement.addEventListener('click',function()
+cardImageEl.addEventListener('click',function()
 {previewModalImage.src = data.link;
   previewModalImage.alt = data.name;
   previewModalCaption.textContent = data.name;
-openModal(previewModal)});;
+openModal(previewModal)});
 
    return cardElement;
  };
