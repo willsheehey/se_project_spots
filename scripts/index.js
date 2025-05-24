@@ -63,6 +63,13 @@ const cardTemplate = document.querySelector("#card-template").content
 
 const cardsList = document.querySelector(".cards__list");
 
+const previewModal = document.querySelector("#preview-post-modal");
+
+const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
+
+const previewModalImage = previewModal.querySelector(".modal__image");
+
+const previewModalCaption = previewModal.querySelector(".modal__caption");
 
 function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -82,10 +89,17 @@ const cardDeleteBtn = cardElement.querySelector(".card__delete-button")
 cardDeleteBtn.addEventListener('click',function()
 {cardElement.remove(); })
 
+cardElement.addEventListener('click',function()
+{previewModalImage.src = data.link;
+  previewModalImage.alt = data.name;
+  previewModalCaption.textContent = data.name;
+openModal(previewModal)});;
 
    return cardElement;
  };
 
+ previewModalCloseBtn.addEventListener('click',function()
+{closeModal(previewModal)});
 
 
 function openModal(modal){
