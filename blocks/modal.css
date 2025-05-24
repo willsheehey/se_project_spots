@@ -13,6 +13,10 @@
   transition:0s linear 0.5s, 0.5s linear;
 }
 
+.modal_type_preview {
+  padding: 0 16px;
+}
+
 .modal_is-opened {
 visibility: visible;
 opacity:1;
@@ -39,6 +43,21 @@ position: relative;
   background: none;
   border: none;
   opacity: 40%;
+  background-image: url(../images/close.svg);
+}
+
+.modal__close-btn_type_preview {
+  top: 0;
+  right: -52.5px;
+  background-image: url(../images/whitex.svg);
+  opacity: 100;
+}
+
+.modal__close-btn_type_preview:hover {
+  top: 0;
+  right: -52.5px;
+  cursor: pointer;
+  background-image: url(../images/Close\ Icon.svg);
 }
 
 .modal__close-btn:hover {
@@ -105,6 +124,33 @@ color: rgba(33, 33, 33, 0.7);
   background-color: rgba(33, 33, 33, 0.8);
 }
 
+.modal__image-container {
+  position:relative;
+}
+
+.modal__image {
+  max-width: 80vw;
+  max-height: 80vh;
+  width: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 8px;
+}
+
+.modal__caption {
+  color: white;
+  background-color: rgba(33, 33, 33, 1);
+  display: inline-block;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+
+.modal__submit-btn {
+  max-width: none;
+  width: 100%;
+}
+
 @media screen and (max-width: 320px) {
   .modal__submit-btn {
     max-width: none;
@@ -134,5 +180,15 @@ font-size: 16px;
 
   .modal__label {
     margin-bottom: 24px;
+  }
+}
+
+@media screen and (max-width: 627px) {
+  .modal__close-btn_type_preview {
+    top: -48px;
+    right: 0;
+  }
+  .modal__image {
+    max-width: unset;
   }
 }

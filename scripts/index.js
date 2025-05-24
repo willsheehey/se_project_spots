@@ -1,6 +1,10 @@
 const initialCards = [
 
   {
+    name: "Golden Gate Bridge",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg"
+    },
+  {
   name: "Val Thorens",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg"
     },
@@ -20,13 +24,11 @@ const initialCards = [
   name: "Tunnel with morning light",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg"
   },
-
  {
   name: "Mountain house",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg"
-  },
-
-  ];
+ },
+];
 
 const editProfileButton = document.querySelector(".profile__button");
 
