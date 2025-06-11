@@ -166,3 +166,20 @@ initialCards.forEach(function (item) {
   const createCard = getCardElement(item);
   cardsList.append(createCard);
 });
+
+function escapeKeyModalClose(event) {
+  if (event.key === "Escape") {
+    closeModal(previewModal);
+  }
+  evt.target.removeEventListener("keydown", escapeKeyModalClose);
+}
+document.addEventListener("keydown", escapeKeyModalClose);
+
+function outsideClickModalClose(event) {
+  if (event.target.classList.contains("modal")) {
+    closeModal(previewModal);
+  }
+  evt.target.removeEventListener("click", OutsideClickModalClose);
+}
+document.addEventListener("click", OutsideClickModalClose);
+
