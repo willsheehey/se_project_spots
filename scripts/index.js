@@ -179,7 +179,7 @@ function outsideClickModalClose(event) {
   if (event.target.classList.contains("modal")) {
     closeModal(previewModal);
   }
-  evt.target.removeEventListener("click", OutsideClickModalClose);
+  evt.target.removeEventListener("click", outsideClickModalClose);
 }
-document.addEventListener("click", OutsideClickModalClose);
+document.addEventListener("click", outsideClickModalClose);
 
