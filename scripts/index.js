@@ -111,16 +111,16 @@ previewModalCloseBtn.addEventListener("click", function () {
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
 
-   const escHandler = (event) => {
+  const escHandler = (event) => {
     if (event.key === "Escape") {
       closeModal(modal);
     }
   };
 
- modal._escHandler = escHandler;
+  modal._escHandler = escHandler;
 
   document.addEventListener("keydown", escHandler);
-};
+}
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
@@ -128,8 +128,8 @@ function closeModal(modal) {
   if (modal._escHandler) {
     document.removeEventListener("keydown", modal._escHandler);
     delete modal._escHandler;
-  };
-};
+  }
+}
 
 editProfileButton.addEventListener("click", function () {
   profileNameInput.value = profileName.textContent;
@@ -180,5 +180,11 @@ initialCards.forEach(function (item) {
   cardsList.append(createCard);
 });
 
-
-
+const modals = document.querySelectorAll(".modal");
+modals.forEach((modal) => {
+  modal.addEventListener("click", (event) => {
+    if (event.target.classList.contains("modal")) {
+      closeModal(modal);
+    }
+  });
+});
