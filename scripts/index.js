@@ -29,6 +29,8 @@ const initialCards = [
   },
 ];
 
+const submitButton = document.querySelector(".modal__submit-btn");
+
 const editProfileButton = document.querySelector(".profile__button");
 
 const editProfileModal = document.querySelector("#edit-profile-modal");
@@ -134,6 +136,7 @@ function closeModal(modal) {
 editProfileButton.addEventListener("click", function () {
   profileNameInput.value = profileName.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
+  resetValidation (editProfileForm, [profileNameInput,profileDescriptionInput], settings);
   openModal(editProfileModal);
 });
 
@@ -154,12 +157,16 @@ function handleFormSubmit(evt) {
   profileName.textContent = profileNameInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closeModal(editProfileModal);
-}
+};
 
 editProfileForm.addEventListener("submit", handleFormSubmit);
 
 function handlePostFormSubmit(evt) {
   evt.preventDefault();
+
+  if (!newPostForm.checkValidity()) {
+    return;
+  };
 
   const inputValues = {
     name: postCaptionInput.value,
@@ -169,9 +176,10 @@ function handlePostFormSubmit(evt) {
   const createCard = getCardElement(inputValues);
 
   cardsList.prepend(createCard);
-  closeModal(newPostModal);
   newPostForm.reset();
-}
+  disableButton(submitButton, settings);
+  closeModal(newPostModal);
+};
 
 newPostForm.addEventListener("submit", handlePostFormSubmit);
 
