@@ -113,23 +113,23 @@ previewModalCloseBtn.addEventListener("click", function () {
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
 
-  const escHandler = (event) => {
+  const handleEscape = (event) => {
     if (event.key === "Escape") {
       closeModal(modal);
     }
   };
 
-  modal._escHandler = escHandler;
+  modal._handleEscape = handleEscape;
 
-  document.addEventListener("keydown", escHandler);
+  document.addEventListener("keydown", handleEscape);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
 
-  if (modal._escHandler) {
-    document.removeEventListener("keydown", modal._escHandler);
-    delete modal._escHandler;
+  if (modal._handleEscape) {
+    document.removeEventListener("keydown", modal._handleEscape);
+    delete modal._handleEscape;
   }
 }
 
