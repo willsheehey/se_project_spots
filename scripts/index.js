@@ -29,8 +29,6 @@ const initialCards = [
   },
 ];
 
-const submitButton = document.querySelector(".modal__submit-btn");
-
 const editProfileButton = document.querySelector(".profile__button");
 
 const editProfileModal = document.querySelector("#edit-profile-modal");
@@ -61,6 +59,8 @@ const postImageInput = newPostModal.querySelector("#profile-image-input");
 const postCaptionInput = newPostModal.querySelector("#profile-caption-input");
 
 const newPostForm = newPostModal.querySelector(".modal__form");
+
+const cardFormSubmitButton = newPostForm.querySelector(".modal__submit-btn");
 
 const cardTemplate = document
   .querySelector("#card-template")
@@ -177,7 +177,7 @@ function handlePostFormSubmit(evt) {
 
   cardsList.prepend(createCard);
   newPostForm.reset();
-  disableButton(submitButton, settings);
+  disableButton(cardFormSubmitButton, settings);
   closeModal(newPostModal);
 };
 
